@@ -5,10 +5,12 @@ const userSchema = mongoose.Schema(
 		name: {
 			type: String,
 			require: [true, "Name required."],
+			unique: true,
 		},
 		age: {
 			type: Number,
 			require: [true, "Age required."],
+			undefined: true,
 		},
 	},
 	{

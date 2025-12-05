@@ -4,6 +4,16 @@ export const getData = () => {
 	return User.find();
 };
 
+export const isUserExist = async (userData) => {
+	try {
+		const checkUser = await User.findOne({ name: userData.name });
+
+		return checkUser;
+	} catch (error) {
+		throw new Error(`Error checking user existence: ${error.message}`);
+	}
+};
+
 export const createData = async (DATA) => {
 	const data = new User(DATA);
 
