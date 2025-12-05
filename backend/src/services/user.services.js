@@ -30,6 +30,6 @@ export const deleteData = async (reqId) => {
 
 		return data;
 	} catch (error) {
-		throw new Error({ DELETE: error.message });
+		throw new Error(error.message);
 	}
 };

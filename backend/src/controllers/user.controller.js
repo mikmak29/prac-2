@@ -39,3 +39,21 @@ export const updateData = async (req, res) => {
 		res.status(400).json({ UPDATE: error.message });
 	}
 };
+
+export const deleteData = async (req, res) => {
+	try {
+		const data = req.params.id;
+
+		const deleteData = await userService.deleteData(data);
+
+		if (!deleteData) {
+			throw new Error("User not exist.");
+		}
+
+		console.log("Removed user successfully.");
+
+		res.status(200).send();
+	} catch (error) {
+		res.status(400).json({ DELETE: error.message });
+	}
+};
