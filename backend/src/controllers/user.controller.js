@@ -30,8 +30,6 @@ export const updateData = async (req, res) => {
 	try {
 		const updateData = await userService.updateData(req.params.id, req.body, { new: true });
 
-		console.log(updateData);
-
 		if (!updateData) {
 			throw new Error("User not exist.");
 		}
