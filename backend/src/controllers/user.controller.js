@@ -18,6 +18,12 @@ export const createData = async (req, res) => {
 	try {
 		const data = req.body;
 
+		const existingUser = await userService.isUserExist(data);
+
+		if (existingUser) {
+			throw new Error("User already exists.");
+		}
+
 		const createData = await userService.createData(data);
 
 		res.status(200).send(createData);
