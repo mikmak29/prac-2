@@ -5,31 +5,19 @@ export const getData = () => {
 };
 
 export const createData = async (DATA) => {
-	try {
-		const data = new User(DATA);
+	const data = new User(DATA);
 
-		return await data.save();
-	} catch (error) {
-		throw new Error({ POST: error.message });
-	}
+	return await data.save();
 };
 
 export const updateData = async (reqId, reqBody, updated) => {
-	try {
-		const data = await User.findByIdAndUpdate(reqId, reqBody, updated);
+	const data = await User.findByIdAndUpdate(reqId, reqBody, updated);
 
-		return data;
-	} catch (error) {
-		throw new Error({ UPDATE: error.message });
-	}
+	return data;
 };
 
 export const deleteData = async (reqId) => {
-	try {
-		const data = await User.findByIdAndDelete(reqId);
+	const data = await User.findByIdAndDelete(reqId);
 
-		return data;
-	} catch (error) {
-		throw new Error(error.message);
-	}
+	return data;
 };
