@@ -22,6 +22,22 @@ export const createData = async (req, res) => {
 
 		res.status(200).send(createData);
 	} catch (error) {
-		res.status(400).json({ DATA: error.message });
+		res.status(400).json({ CREATE: error.message });
+	}
+};
+
+export const updateData = async (req, res) => {
+	try {
+		const updateData = await userService.updateData(req.params.id, req.body, { new: true });
+
+		console.log(updateData);
+
+		if (!updateData) {
+			throw new Error("User not exist.");
+		}
+
+		res.status(200).send(updateData);
+	} catch (error) {
+		res.status(400).json({ UPDATE: error.message });
 	}
 };
