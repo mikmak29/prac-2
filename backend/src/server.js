@@ -1,13 +1,15 @@
 import dotenv from "dotenv";
-import express from "express";
+import app from "./app.js";
+import database from "./config/db.js";
 
 dotenv.config();
 
-const app = express();
 const PORT = process.env.PORT || 3000;
 
-const serverStarter = () => {
+const serverStarter = async () => {
 	try {
+		await database();
+
 		app.listen(PORT, () => {
 			console.log(`Server running at http://localhost:${PORT}`);
 		});
