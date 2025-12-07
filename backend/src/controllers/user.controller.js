@@ -56,8 +56,6 @@ export const deleteData = async (req, res) => {
 			throw new Error("User not exist.");
 		}
 
-		console.log("Removed user successfully.");
-
 		res.status(200).send();
 	} catch (error) {
 		res.status(400).json({ DELETE: error.message });
