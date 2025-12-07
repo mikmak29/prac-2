@@ -12,6 +12,20 @@ const userSchema = mongoose.Schema(
 			require: [true, "Age required."],
 			undefined: true,
 		},
+		location: {
+			region: {
+				type: String,
+				require: [true, "Region required."],
+			},
+			city: {
+				type: String,
+				require: [true, "City required."],
+			},
+			postalCode: {
+				type: Number,
+				require: [true, "postal code required."],
+			},
+		},
 	},
 	{
 		versionKey: false,
