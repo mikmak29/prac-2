@@ -1,9 +1,14 @@
 import * as userService from "../services/user.services.js";
 
+/**
+ *
+ * @param {import('express').Request} req
+ * @param {import('express').Response} res
+ */
+
 export const getData = async (req, res) => {
 	try {
 		const data = await userService.getData();
-
 		if (!data) {
 			throw new Error("Couldn't fetch the data.");
 		}
