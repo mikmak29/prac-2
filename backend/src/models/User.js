@@ -4,26 +4,26 @@ const userSchema = mongoose.Schema(
 	{
 		name: {
 			type: String,
-			require: [true, "Name required."],
+			required: [true, "Name required."],
 			unique: true,
 		},
 		age: {
 			type: Number,
-			require: [true, "Age required."],
+			required: [true, "Age required."],
 			undefined: true,
 		},
 		location: {
 			region: {
 				type: String,
-				require: [true, "Region required."],
+				required: [true, "Region required."],
 			},
 			city: {
 				type: String,
-				require: [true, "City required."],
+				required: [true, "City required."],
 			},
 			postalCode: {
 				type: Number,
-				require: [true, "postal code required."],
+				required: [true, "postal code required."],
 			},
 		},
 	},
